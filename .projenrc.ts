@@ -11,5 +11,6 @@ const project = new nx_monorepo.NxMonorepoProject({
   authorOrganization: true,
   repository: repository,
   vscode: true,
+  github: true,
 });
 project.synth();
