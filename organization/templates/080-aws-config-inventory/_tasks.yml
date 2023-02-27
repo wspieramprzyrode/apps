@@ -1,0 +1,49 @@
+Parameters:
+  <<: !Include '../../_parameters.yml'
+
+  appName:
+    Type: String
+    Default: 'config'
+
+# Enable AWS Config in all member accounts and send Findings and Config history to the centralized s3 bucket in the archive account
+ConfigBase:
+  Type: update-stacks
+  Template: ./config.yml
+  StackName: !Sub '${resourcePrefix}-${appName}-base'
+  StackDescription: AWS Config - Base
+  TerminationProtection: false
+  DefaultOrganizationBindingRegion: !Ref primaryRegion
+  DefaultOrganizationBinding:
+    IncludeMasterAccount: true
+    Account: '*'
+  OrganizationBindings:
+    LogArchiveBinding:
+      Account: !Ref LogArchiveAccount
+  Parameters:
+    resourcePrefix: !Ref resourcePrefix
+    bucketName: !Sub '${resourcePrefix}-${appName}-${CurrentAccount.AccountId}'
+ConfigAggregation:
+  Type: update-stacks
+  DependsOn: ConfigBase
+  Template: ./config-aggregation.yml
+  StackName: !Sub '${resourcePrefix}-${appName}-aggregation'
+  StackDescription: AWS Config - Aggregation
+  TerminationProtection: false
+  Parameters:
+    aggregatorName: !Sub '${resourcePrefix}-${appName}-aggregator'
+    primaryRegion: !Ref primaryRegion
+    allRegions: !Ref allRegions
+  MaxConcurrentStacks: 32
+  DefaultOrganizationBindingRegion: !Ref primaryRegion
+  OrganizationBindings:
+    ConfigEnableBinding:
+      Account: '*'
+      IncludeMasterAccount: true
+      Region: !Ref allRegions
+    ConfigEnableBindingPrimary:
+      Account: '*'
+      IncludeMasterAccount: true
+      Region:
+        - !Ref primaryRegion
+    ConfigAdminBinding:
+      Account: !Ref SecurityAccount

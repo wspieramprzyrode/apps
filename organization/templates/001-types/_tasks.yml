@@ -1,0 +1,103 @@
+Parameters:
+  <<: !Include "../../_parameters.yml"
+
+  catalogBucket:
+    Type: String
+    Default: community-resource-provider-catalog
+NoDefaultVpcRp:
+  Type: register-type
+  ResourceType: "Community::Organizations::NoDefaultVPC"
+  SchemaHandlerPackage: !Sub "s3://${catalogBucket}/community-organizations-nodefaultvpc-0.1.0.zip"
+  MaxConcurrentTasks: 100
+  OrganizationBinding:
+    IncludeMasterAccount: true
+    Account: "*"
+    Region: !Ref allRegions
+CommunityAlternateContactsRP:
+  Type: register-type
+  SchemaHandlerPackage: s3://community-resource-provider-catalog/community-account-alternatecontact-0.1.0.zip
+  ResourceType: 'Community::Account::AlternateContact'
+  MaxConcurrentTasks: 10
+  OrganizationBinding:
+    IncludeMasterAccount: true
+    Account: '*'
+    Region: us-east-1
+SsoAssignmentGroupRp:
+  Type: register-type
+  ResourceType: "Community::SSO::AssignmentGroup"
+  SchemaHandlerPackage: !Sub "s3://${catalogBucket}/community-sso-assignmentgroup-0.3.1.zip"
+  MaxConcurrentTasks: 10
+  OrganizationBinding:
+    IncludeMasterAccount: true
+    Region: !Ref primaryRegion
+OrganizationsPolicyRp:
+  Type: register-type
+  ResourceType: "Community::Organizations::Policy"
+  SchemaHandlerPackage: !Sub "s3://${catalogBucket}/community-organizations-policy-0.2.2.zip"
+  MaxConcurrentTasks: 100
+  OrganizationBinding:
+    IncludeMasterAccount: true
+    Region: us-east-1 # Only compatible to us-east-1 region
+PasswordPolicyRp:
+  Type: register-type
+  ResourceType: "Community::IAM::PasswordPolicy"
+  SchemaHandlerPackage: !Sub "s3://${catalogBucket}/community-iam-passwordpolicy-0.2.0.zip"
+  MaxConcurrentTasks: 10
+  OrganizationBinding:
+    IncludeMasterAccount: true
+    Account: "*"
+    Region: !Ref primaryRegion
+EbsEncryptionDefaultsRp:
+  Type: register-type
+  ResourceType: "Community::Organizations::EbsEncryptionDefaults"
+  SchemaHandlerPackage: !Sub "s3://${catalogBucket}/community-ec2-ebsencryptiondefaults-0.2.0.zip"
+  MaxConcurrentTasks: 100
+  OrganizationBinding:
+    IncludeMasterAccount: true
+    Account: "*"
+    Region: !Ref allRegions
+AccountPublicAccessBlockRp:
+  Type: register-type
+  ResourceType: "Community::S3::PublicAccessBlock"
+  SchemaHandlerPackage: !Sub "s3://${catalogBucket}/community-s3-publicaccessblock-0.2.0.zip"
+  MaxConcurrentTasks: 100
+  OrganizationBinding:
+    IncludeMasterAccount: true
+    Account: "*"
+    Region: !Ref primaryRegion
+OrganizationsDelegatedAdminRp:
+  Type: register-type
+  ResourceType: "Community::Organizations::DelegatedAdmin"
+  SchemaHandlerPackage: !Sub "s3://${catalogBucket}/community-organizations-delegatedadmin-0.1.0.zip"
+  MaxConcurrentTasks: 100
+  OrganizationBinding:
+    IncludeMasterAccount: true
+    Region: us-east-1
+
+SecurityHubHub:
+  Type: register-type
+  ResourceType: "Community::SecurityHub::Hub"
+  SchemaHandlerPackage: !Sub "s3://${catalogBucket}/community-securityhub-hub-0.1.1.zip"
+  MaxConcurrentTasks: 100
+  OrganizationBinding:
+    IncludeMasterAccount: true
+    Account: "*"
+    Region: !Ref primaryRegion
+SecurityHubMembers:
+  Type: register-type
+  ResourceType: "Community::SecurityHub::Members"
+  SchemaHandlerPackage: !Sub "s3://${catalogBucket}/community-securityhub-members-0.2.1.zip"
+  MaxConcurrentTasks: 100
+  OrganizationBinding:
+    IncludeMasterAccount: true
+    Account: "*"
+    Region: !Ref primaryRegion
+SecurityHubMaster:
+  Type: register-type
+  ResourceType: "Community::SecurityHub::Master"
+  SchemaHandlerPackage: !Sub "s3://${catalogBucket}/community-securityhub-master-0.2.0.zip"
+  MaxConcurrentTasks: 100
+  OrganizationBinding:
+    IncludeMasterAccount: true
+    Account: "*"
+    Region: !Ref primaryRegion

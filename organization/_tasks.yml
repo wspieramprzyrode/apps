@@ -1,0 +1,44 @@
+Parameters:
+  <<: !Include './_parameters.yml'
+
+OrganizationUpdate:
+  Type: update-organization
+  Template: ./organization.yml
+Types:
+  Type: include
+  Path: ./templates/001-types/_tasks.yml
+SeviceControlPolicies:
+  Type: include
+  DependsOn: [ Types ]
+  Path: ./templates/002-scps/_tasks.yml
+SecureDefaults:
+  Type: include
+  DependsOn: [ Types ]
+  Path: ./templates/003-secure-defaults/_tasks.yml
+# AdminDelegates:
+#   Type: include
+#   DependsOn: [ Types ]
+#   Path: ./templates/004-admin-delegates/_tasks.yml
+SSO:
+  Type: include
+  DependsOn: [ Types ]
+  Path: ./templates/010-sso/_tasks.yml
+CloudTrail:
+  Type: include
+  Path: ./templates/060-cloud-trail/_tasks.yml
+GuardDuty:
+  Type: include
+  DependsOn: [ Types ]
+  Path: ./templates/070-guard-duty/_tasks.yml
+AwsConfigInventory:
+  Type: include
+  DependsOn: [ Types ]
+  Path: ./templates/080-aws-config-inventory/_tasks.yml
+AwsConfigRules:
+  Type: include
+  DependsOn: [ AwsConfigInventory ]
+  Path: ./templates/090-aws-config-rules/_tasks.yml
+AwsSecurityHub:
+  Type: include
+  DependsOn: [ Types ]
+  Path: ./templates/100-aws-security-hub/_tasks.yml

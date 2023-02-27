@@ -1,0 +1,20 @@
+Parameters:
+  <<: !Include '../../_parameters.yml'
+
+  appName:
+    Type: String
+    Default: 'delegates-admin'
+
+
+DelegateSecurityHub:
+  Type: update-stacks
+  Template: ./delegate-admin.yml
+  StackName: !Sub '${resourcePrefix}-${appName}-securityhub'
+  StackDescription: 'Delegate securityhub admin'
+  TerminationProtection: false
+  DefaultOrganizationBindingRegion: us-east-1
+  DefaultOrganizationBinding:
+    IncludeMasterAccount: true
+  Parameters:
+    AccountId: !Ref SecurityAccount
+    ServicePrincipal: securityhub.amazonaws.com

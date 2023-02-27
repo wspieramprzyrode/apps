@@ -1,0 +1,62 @@
+AWSTemplateFormatVersion: '2010-09-09-OC'
+Description: default template generated for organization with master account 369422456342
+
+Organization:
+  ManagementAccount:
+    Type: OC::ORG::MasterAccount
+    Properties:
+      AccountName: WspieramPrzyrode-Management
+      AccountId: '369422456342'
+      RootEmail: team@wspieramprzyrode.pl
+      Alias: wspieramprzyrode
+
+  OrganizationRoot:
+    Type: OC::ORG::OrganizationRoot
+    Properties:
+      DefaultOrganizationAccessRoleName: OrganizationAccountAccessRole
+  # ProdOu:
+  #   Type: OC::ORG::OrganizationalUnit
+  #   Properties:
+  #     OrganizationalUnitName: Production
+  #     Accounts: []
+
+  # # Organizational Unit used for the Software Development Life Cycle of each team
+  # SdlcOu:
+  #   Type: OC::ORG::OrganizationalUnit
+  #   Properties:
+  #     OrganizationalUnitName: Sdlc
+  #     Accounts: []
+
+  # Organizational Unit used for security services
+  SecurityOu:
+    Type: OC::ORG::OrganizationalUnit
+    Properties:
+      OrganizationalUnitName: Security
+      Accounts:
+        - !Ref SecurityAccount
+        - !Ref LogArchiveAccount
+
+  # Organizational Unit that contains accounts to be deleted from organization
+  SuspendedOu:
+    Type: OC::ORG::OrganizationalUnit
+    Properties:
+      OrganizationalUnitName: Suspended
+      Accounts: []
+  SandboxOu:
+    Type: OC::ORG::OrganizationalUnit
+    Properties:
+      OrganizationalUnitName: Sandbox
+      Accounts: []
+  SecurityAccount:
+    Type: OC::ORG::Account
+    Properties:
+      Alias: 'WspieramPrzyrode-security'
+      AccountName: Wspieram Przyrode Security Account
+      RootEmail: team-aws-security@wspieramprzyrode.pl
+
+  LogArchiveAccount:
+    Type: OC::ORG::Account
+    Properties:
+      Alias: 'WspieramPrzyrode-log-archive'
+      AccountName: Wspieram Przyrode Log Archive Account
+      RootEmail: team-aws-log-archive@wspieramprzyrode.pl

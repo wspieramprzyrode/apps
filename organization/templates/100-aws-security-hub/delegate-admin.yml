@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  AccountId:
+    Type: String
+    Description: The master account ID for an AWS account.
+  ServicePrincipal:
+    Type: String
+Resources:
+  DelegateSecurityHubAdmin:
+    Type: Community::Organizations::DelegatedAdmin
+    Properties:
+      AccountId: !Ref AccountId
+      ServicePrincipal: !Ref ServicePrincipal

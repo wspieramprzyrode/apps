@@ -33,6 +33,7 @@
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "aws-prototyping-sdk": "^0.14.8",
+    "aws-organization-formation": "^1.0.7",
     "eslint": "^8",
     "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-node": "^0.3.7",

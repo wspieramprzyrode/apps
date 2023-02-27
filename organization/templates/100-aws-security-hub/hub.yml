@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: "2010-09-09-OC"
+OrganizationBindings:
+  SecurityHubMasterBinding:
+  SecurityHubMembersBinding:
+Parameters:
+  MasterAccountId:
+    Type: String
+    Description: The master account ID for an AWS account.
+Resources:
+  EnableHub:
+    Type: AWS::SecurityHub::Hub
+    OrganizationBinding: !Ref SecurityHubMasterBinding
+#   Hub:
+#     Type: Community::SecurityHub::Hub
+#     OrganizationBinding: !Ref SecurityHubMasterBinding
+#     Properties:
+#       EnableDefaultStandards: true
+#   Members:
+#     Type: Community::SecurityHub::Members
+#     DependsOn: Hub
+#     OrganizationBinding: !Ref SecurityHubMasterBinding
+#     Properties:
+#         MemberAccountIDs: Fn::EnumTargetAccounts SecurityHubMembersBinding '${account}'
+
+#   Master:
+#     Type: Community::SecurityHub::Master
+#     OrganizationBinding: !Ref SecurityHubMembersBinding
+#     Properties:
+#       MasterAccountId: !Ref MasterAccountId

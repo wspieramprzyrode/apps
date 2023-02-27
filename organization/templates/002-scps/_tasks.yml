@@ -1,0 +1,23 @@
+Parameters:
+  <<: !Include "../../_parameters.yml"
+
+DenyUnsupportedRegions:
+  Type: update-stacks
+  Template: ./deny-unsupported-regions.yml
+  StackName: !Sub "${resourcePrefix}-deny-unsupported-regions"
+  DefaultOrganizationBindingRegion: us-east-1
+  DefaultOrganizationBinding:
+    IncludeMasterAccount: true
+  Parameters:
+    targetIds: [!Ref OrganizationRoot]
+    supportedRegions: !Ref allRegions
+
+SelfProtect:
+  Type: update-stacks
+  Template: ./self-protect.yml
+  StackName: !Sub "${resourcePrefix}-self-protect"
+  DefaultOrganizationBindingRegion: us-east-1
+  DefaultOrganizationBinding:
+    IncludeMasterAccount: true
+  Parameters:
+    targetIds: [!Ref OrganizationRoot]

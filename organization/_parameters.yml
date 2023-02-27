@@ -1,0 +1,21 @@
+resourcePrefix:
+  Type: String
+  Default: wp
+organizationPrincipalId:
+  Type: String
+  Default: !Ref ORG::PrincipalOrgID
+primaryRegion:
+  Type: String
+  Default: us-east-1
+allRegions:
+  Type: List<String>
+  Default:
+    - us-east-1
+    - eu-west-1
+ssoInstanceArn:
+  Type: String
+  Default: arn:aws:sso:::instance/ssoins-72237c512cc775d2
+  # Principal ID from Identity Provider's group used by administrators
+ssoAdminGroup:
+  Type: String
+  Default: e478a438-e051-70af-c27b-5de843e3da53

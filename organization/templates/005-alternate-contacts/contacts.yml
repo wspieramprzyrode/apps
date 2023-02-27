@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  AlternateContactType:
+    Type: String
+    Description: Type of contact.
+  AlternateContactName:
+    Type: String
+    Description: Type of contact.
+    Default: ''
+  AlternateContactEmail:
+    Type: String
+    Description: Type of contact.
+    Default: ''
+  AlternateContactPhone:
+    Type: String
+    Description: Type of contact.
+    Default: ''
+  AlternateContactTitle:
+    Type: String
+    Description: Type of contact.
+    Default: ''
+Resources:
+  AlternateContact:
+    Type: Community::Account::AlternateContact
+    Properties:
+        AlternateContactType: !Ref AlternateContactType
+        Name: !Ref AlternateContactName
+        EmailAddress: !Ref AlternateContactEmail
+        PhoneNumber: !Ref AlternateContactPhone
+        Title: !Ref AlternateContactTitle
+        AccountId: String

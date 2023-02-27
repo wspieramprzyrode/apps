@@ -10,6 +10,7 @@
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "aws-prototyping-sdk": "^0.14.8",
+    "aws-organization-formation": "^1.0.7",
     "eslint": "^8",
     "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-node": "^0.3.7",
@@ -6798,6 +6799,15 @@
         "version": "3.20.6",
         "packageName": "zod",
         "hash": "sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA=="
+      }
+    },
+    "npm:aws-organization-formation": {
+      "type": "npm",
+      "name": "npm:aws-organization-formation",
+      "data": {
+        "version": "^1.0.7",
+        "packageName": "aws-organization-formation",
+        "hash": "db590df325d6bf5a897adb97b7f9e4434f2deb49ae380b0fb68ba70e82a7a31d"
       }
     }
   },

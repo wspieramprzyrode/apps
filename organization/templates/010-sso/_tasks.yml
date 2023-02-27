@@ -1,0 +1,28 @@
+Parameters:
+  <<: !Include '../../_parameters.yml'
+
+  appName:
+    Type: String
+    Default: 'sso'
+
+  # AWS SSO instance ARN
+
+SsoAdministrator:
+  Type: update-stacks
+  Template: ./aws_sso.yml
+  StackName: !Sub '${resourcePrefix}-${appName}-admin'
+  StackDescription: 'Full permission role used by Admin group within whole organization'
+  TerminationProtection: false
+  DefaultOrganizationBindingRegion: !Ref primaryRegion
+  DefaultOrganizationBinding:
+    IncludeMasterAccount: true
+  OrganizationBindings:
+    TargetBinding:
+      Account: '*'
+  Parameters:
+    instanceArn: !Ref ssoInstanceArn
+    principalId: !Ref ssoAdminGroup
+    permissionSetName: 'Administrator'
+    managedPolicies: [ 'arn:aws:iam::aws:policy/AdministratorAccess', 'arn:aws:iam::aws:policy/job-function/Billing']
+    sessionDuration: 'PT1H'
+    masterAccountId: !Ref ManagementAccount

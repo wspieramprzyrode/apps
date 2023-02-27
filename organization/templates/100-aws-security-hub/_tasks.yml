@@ -1,0 +1,39 @@
+Parameters:
+  <<: !Include '../../_parameters.yml'
+
+  appName:
+    Type: String
+    Default: 'security-hub'
+
+SecurityHub:
+  Type: update-stacks
+  Template: ./hub.yml
+  StackName: !Sub '${resourcePrefix}-${appName}-hub'
+  StackDescription: AWS Security Hub
+  TerminationProtection: false
+  MaxConcurrentStacks: 32
+  Parameters:
+    MasterAccountId: !Ref SecurityAccount
+  DefaultOrganizationBindingRegion: !Ref primaryRegion
+  OrganizationBindings:
+    SecurityHubMasterBinding:
+      Account: !Ref SecurityAccount
+      Region:
+        - !Ref primaryRegion
+    SecurityHubMembersBinding:
+      #Account: '*'
+      IncludeMasterAccount: true
+      Region:
+        - !Ref primaryRegion
+# SecurityHubDelegatedAdmin:
+#   Type: update-stacks
+#   Template: ./delegate-admin.yml
+#   StackName: !Sub '${resourcePrefix}-${appName}-delegated-admin'
+#   StackDescription: 'Delegate securityhub admin'
+#   TerminationProtection: false
+#   DefaultOrganizationBindingRegion: us-east-1
+#   DefaultOrganizationBinding:
+#     IncludeMasterAccount: true
+#   Parameters:
+#     AccountId: !Ref SecurityAccount
+#     ServicePrincipal: securityhub.amazonaws.com

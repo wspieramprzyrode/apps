@@ -4,7 +4,7 @@ const authorEmail = "team@wspieramprzyrode.pl";
 const repository = "https://github.com/wspieramprzyrode/apps";
 const project = new nx_monorepo.NxMonorepoProject({
   defaultReleaseBranch: "main",
-  devDeps: ["aws-prototyping-sdk"],
+  devDeps: ["aws-prototyping-sdk", "aws-organization-formation"],
   name: "wspieram-przyrode",
   authorName: authorName,
   authorEmail: authorEmail,
@@ -13,4 +13,5 @@ const project = new nx_monorepo.NxMonorepoProject({
   vscode: true,
   github: true,
 });
+project.addGitIgnore(".envrc");
 project.synth();
