@@ -23,7 +23,7 @@
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   },
-  "lockFileHash": "4fd764e855e75d6a1e96c6ab1d3f9fc487c03c087faae0a97f20795c11124d05",
+  "lockFileHash": "2f4e277b277e56e4242c7f0e9c5ee3655f10c0b8d683988f63f380745cc2cf03",
   "pathMappings": {},
   "nxJsonPlugins": [
     {
@@ -1310,15 +1310,6 @@
         "hash": "sha512-0DLaCMz0dhHyN+9oD1h2mpOxomuCfflZKrZ7NmOFSyQjkBiMJwh4ztt52W53MDL5/eBq5Jf4mBsPpbsYZvwQhg=="
       }
     },
-    "npm:@nrwl/devkit@15.7.2": {
-      "type": "npm",
-      "name": "npm:@nrwl/devkit@15.7.2",
-      "data": {
-        "version": "15.7.2",
-        "packageName": "@nrwl/devkit",
-        "hash": "sha512-HMGi7L6w2g4IrYwhb04snD8Zr24Z/gzau5i9WUNkwzrjeR1xAm0Cc9WRre221zaeohtK11gyBt7BerT1tgkNwA=="
-      }
-    },
     "npm:@nrwl/js": {
       "type": "npm",
       "name": "npm:@nrwl/js",
@@ -1625,22 +1616,22 @@
         "hash": "sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ=="
       }
     },
-    "npm:@types/node@18.14.2": {
+    "npm:@types/node@18.14.4": {
       "type": "npm",
-      "name": "npm:@types/node@18.14.2",
+      "name": "npm:@types/node@18.14.4",
       "data": {
-        "version": "18.14.2",
+        "version": "18.14.4",
         "packageName": "@types/node",
-        "hash": "sha512-1uEQxww3DaghA0RxqHx0O0ppVlo43pJhepY51OxuQIKHpjbnYLA7vcdwioNPzIqmC2u3I/dmylcqjlh0e7AyUA=="
+        "hash": "sha512-VhCw7I7qO2X49+jaKcAUwi3rR+hbxT5VcYF493+Z5kMLI0DL568b7JI4IDJaxWFH0D/xwmGJNoXisyX+w7GH/g=="
       }
     },
-    "npm:@types/node@14.18.36": {
+    "npm:@types/node": {
       "type": "npm",
-      "name": "npm:@types/node@14.18.36",
+      "name": "npm:@types/node",
       "data": {
-        "version": "14.18.36",
+        "version": "14.18.37",
         "packageName": "@types/node",
-        "hash": "sha512-FXKWbsJ6a1hIrRxv+FoukuHnGTgEzKYGi7kilfMae96AL9UNkPFNWJEEYWzdRI9ooIkbr4AKldyuSTLql06vLQ=="
+        "hash": "sha512-7GgtHCs/QZrBrDzgIJnQtuSvhFSwhyYSI2uafSwZoNt1iOGhEN5fwNrQMjtONyHm9+/LoA4453jH0CMYcr06Pg=="
       }
     },
     "npm:@types/parse-json": {
@@ -3105,9 +3096,9 @@
       "type": "npm",
       "name": "npm:esquery",
       "data": {
-        "version": "1.4.2",
+        "version": "1.5.0",
         "packageName": "esquery",
-        "hash": "sha512-JVSoLdTlTDkmjFmab7H/9SL9qGSyjElT3myyKp7krqjVFQCDLmj1QFaCLRFBszBKI0XVZaiiXvuPIX3ZwHe1Ng=="
+        "hash": "sha512-YQLXUplAwJgCydQ78IMJywZCceoqk1oH01OERdSAJc/7U2AylwjhSCLDEtqwg811idIS/9fIU5GjG73IgjKMVg=="
       }
     },
     "npm:esrecurse": {
@@ -3996,9 +3987,9 @@
       "type": "npm",
       "name": "npm:is-array-buffer",
       "data": {
-        "version": "3.0.1",
+        "version": "3.0.2",
         "packageName": "is-array-buffer",
-        "hash": "sha512-ASfLknmY8Xa2XtB4wmbz13Wu202baeA18cJBCeCy0wXUHZF0IPyVEXqKEcd+t2fNSLLL1vC6k7lxZEojNbISXQ=="
+        "hash": "sha512-y+FyyR/w8vfIRq4eQcM1EYgSTnmHXPqaF+IgzgraytCFq5Xh8lllDVmAZolPJiZttZLeFSINPYMaEJ7/vWUa1w=="
       }
     },
     "npm:is-arrayish": {
@@ -6808,15 +6799,6 @@
         "packageName": "zod",
         "hash": "sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA=="
       }
-    },
-    "npm:@types/node": {
-      "type": "npm",
-      "name": "npm:@types/node",
-      "data": {
-        "version": "^14",
-        "packageName": "@types/node",
-        "hash": "8f37c69116a78b5089bbad630a64488a60834e46c7fe7bf07e52ea91bd07327f"
-      }
     }
   },
   "dependencies": {
@@ -8918,33 +8900,6 @@
         "type": "static"
       }
     ],
-    "npm:@nrwl/devkit@15.7.2": [
-      {
-        "source": "npm:@nrwl/devkit@15.7.2",
-        "target": "npm:@phenomnomnominal/tsquery",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/devkit@15.7.2",
-        "target": "npm:ejs",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/devkit@15.7.2",
-        "target": "npm:ignore",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/devkit@15.7.2",
-        "target": "npm:semver@7.3.4",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/devkit@15.7.2",
-        "target": "npm:tslib",
-        "type": "static"
-      }
-    ],
     "npm:@nrwl/js": [
       {
         "source": "npm:@nrwl/js",
@@ -9794,7 +9749,7 @@
     "npm:aws-prototyping-sdk": [
       {
         "source": "npm:aws-prototyping-sdk",
-        "target": "npm:@nrwl/devkit@15.7.2",
+        "target": "npm:@nrwl/devkit",
         "type": "static"
       }
     ],
@@ -14754,7 +14709,7 @@
       },
       {
         "source": "npm:xmlbuilder2",
-        "target": "npm:@types/node@18.14.2",
+        "target": "npm:@types/node@18.14.4",
         "type": "static"
       },
       {
