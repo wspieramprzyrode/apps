@@ -13,7 +13,7 @@ SecurityHub:
   TerminationProtection: false
   MaxConcurrentStacks: 32
   Parameters:
-    MasterAccountId: !Ref SecurityAccount
+    MasterAccountId: !Ref SecurityAccount  
   DefaultOrganizationBindingRegion: !Ref primaryRegion
   OrganizationBindings:
     SecurityHubMasterBinding:
@@ -21,19 +21,8 @@ SecurityHub:
       Region:
         - !Ref primaryRegion
     SecurityHubMembersBinding:
-      #Account: '*'
+      Account: '*'
       IncludeMasterAccount: true
+      ExcludeAccount: !Ref SecurityAccount
       Region:
-        - !Ref primaryRegion
-# SecurityHubDelegatedAdmin:
-#   Type: update-stacks
-#   Template: ./delegate-admin.yml
-#   StackName: !Sub '${resourcePrefix}-${appName}-delegated-admin'
-#   StackDescription: 'Delegate securityhub admin'
-#   TerminationProtection: false
-#   DefaultOrganizationBindingRegion: us-east-1
-#   DefaultOrganizationBinding:
-#     IncludeMasterAccount: true
-#   Parameters:
-#     AccountId: !Ref SecurityAccount
-#     ServicePrincipal: securityhub.amazonaws.com
+        - !Ref primaryRegion          
